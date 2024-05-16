@@ -15,6 +15,7 @@
 #ifdef METAL_FREERTOS
 #include <metal/system/freertos/assert.h>
 #else
+// Hacked to work PE
 //#include <metal/system/generic/assert.h>
 #include <assert.h>
 #endif

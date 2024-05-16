@@ -42,19 +42,11 @@ Src \
 Src/STMicroelectronics/hardware/stm32/2.7.1/cores/arduino \
 Src/STMicroelectronics/hardware/stm32/2.7.1/cores/arduino/avr \
 Src/STMicroelectronics/hardware/stm32/2.7.1/cores/arduino/stm32/OpenAMP \
-Src/STMicroelectronics/hardware/stm32/2.7.1/cores/arduino/stm32 \
-Src/STMicroelectronics/hardware/stm32/2.7.1/cores/arduino/stm32/usb/cdc \
-Src/STMicroelectronics/hardware/stm32/2.7.1/cores/arduino/stm32/usb/hid \
-Src/STMicroelectronics/hardware/stm32/2.7.1/cores/arduino/stm32/usb \
 Src/STMicroelectronics/hardware/stm32/2.7.1/libraries/Wire/src \
 Src/STMicroelectronics/hardware/stm32/2.7.1/libraries/Wire/src/utility \
 Src/STMicroelectronics/hardware/stm32/2.7.1/system/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc \
 Src/STMicroelectronics/hardware/stm32/2.7.1/system/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates \
-Src/STMicroelectronics/hardware/stm32/2.7.1/system/Drivers/STM32U5xx_HAL_Driver/Src \
-Src/STMicroelectronics/hardware/stm32/2.7.1/system/Middlewares/OpenAMP/open-amp/lib \
 Src/STMicroelectronics/hardware/stm32/2.7.1/system/Middlewares/OpenAMP/virtual_driver \
-Src/STMicroelectronics/hardware/stm32/2.7.1/system/Middlewares/ST/STM32_USB_Device_Library/Class/HID/Src \
-Src/STMicroelectronics/hardware/stm32/2.7.1/system/Middlewares/ST/STM32_USB_Device_Library/Core/Src \
 Src/STMicroelectronics/hardware/stm32/2.7.1/system/STM32U5xx \
 Src/STMicroelectronics/hardware/stm32/2.7.1/variants/STM32U5xx/U535R(B-C-E)TxQ_U545RETxQ \
 

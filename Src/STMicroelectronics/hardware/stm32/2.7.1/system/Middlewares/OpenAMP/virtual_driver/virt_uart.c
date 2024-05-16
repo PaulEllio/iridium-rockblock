@@ -40,6 +40,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "virt_uart.h"
+// Hacked to work PE
 //#include "metal/utilities.h"
 #include "utilities.h"
 

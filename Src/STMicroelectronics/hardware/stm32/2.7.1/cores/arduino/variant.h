@@ -12,5 +12,6 @@
  */
 #pragma once
 
+// Hacked to work PE
 //#include VARIANT_H
 #include "variant_generic.h"

@@ -14,8 +14,8 @@ Copyright (C) 2013-2017 Mikal Hart
 */
 
 /* Includes ------------------------------------------------------------------*/
+#include <IridiumSBD.hpp>
 #include "stm32u5xx_hal.h"
-#include "IridiumSBD.h"
 
 
 // Should this be a c file or a cpp file?

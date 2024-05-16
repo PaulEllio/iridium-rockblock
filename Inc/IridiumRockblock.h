@@ -16,17 +16,17 @@ Suggested and generously supported by Rock Seven Location Technology
 #include "Arduino.h" // NEED to change to stm32u5xx_hal_conf.h ??
 */
 
-#include "IridiumSBD.h"
-
 #ifndef IRIDIUMROCKBLOCK_H
 #define IRIDIUMROCKBLOCK_H
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#include "IridiumSBD.h"
+
 
 extern void init(void);
 extern void sendSBDText(void);
+
+
+
 
 /*
 **** What are we calling here? Commands? ****
