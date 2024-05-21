@@ -22,7 +22,7 @@ License along with this library; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-#include <IridiumSBD.hpp>
+#include <IridiumSBD.h>
 #include <time.h>
 
 
@@ -36,7 +36,7 @@ void ISBDDiagsCallback(IridiumSBD *device, char c) { }
 
 
 // Power on the RockBLOCK or return from sleep
-int IridiumSBD::init()
+int IridiumSBD::begin()
 {
     if (this->reentrant)
         return ISBD_REENTRANT;
@@ -71,8 +71,9 @@ int IridiumSBD::sendSBDBinary(const uint8_t *txData, size_t txDataSize)
 
 
 // Transmit and receive a binary message
-int IridiumSBD::sendReceiveSBDBinary(const uint8_t *txData, size_t txDataSize,
-                                     uint8_t *rxBuffer, size_t &rxBufferSize)
+int IridiumSBD::sendReceiveSBDBinary(const uint8_t *txData,
+                                                size_t txDataSize,
+                                                uint8_t *rxBuffer, size_t &rxBufferSize)
 {
     if (this->reentrant)
         return ISBD_REENTRANT;
@@ -781,10 +782,11 @@ int IridiumSBD::internalSendReceiveSBD(const char *txTxtMessage, const uint8_t *
     else // Text transmission
     {
        #if true // Use long string implementation
-           {
-               send(F("AT+SBDWT=\r"));
-               if (!waitForATResponse())
-                   return cancelled() ? ISBD_CANCELLED : ISBD_PROTOCOL_ERROR;
+      if (txTxtMessage == NULL) // It's ok to have a NULL txtTxtMessage if the transaction is RX only
+       {
+           send(F("AT+SBDWT=\r"));
+           if (!waitForATResponse())
+               return cancelled() ? ISBD_CANCELLED : ISBD_PROTOCOL_ERROR;
            }
            else
            {
@@ -1326,29 +1328,26 @@ void IridiumSBD::send(FlashString str, bool beginLine, bool endLine)
 
 void IridiumSBD::send(const char *str)
 {
-    consoleprint(F(">> "));
-    consoleprint(str);
-    consoleprint(F("\r\n"));
-
-    if (this->useSerial)
-    {
-        stream->print(str);
-    }
-    else
-    {
-        //lastCheck = millis(); // Update lastCheck so we enforce a full I2C_POLLING_WAIT
-        wireport->beginTransmission((uint8_t)deviceaddress);
-        wireport->write(DATA_REG); // Point to the 'serial register'
-        wireport->print(str);
-
-        if (wireport->endTransmission() != 0) //Release bus
-            diagprint(F("I2C write was not successful!\r\n"));
-    }
+   consoleprint(F(">> "));
+   consoleprint(str);
+   consoleprint(F("\r\n"));
+   if (this->useSerial)
+   {
+      stream->print(str);
+   }
+   else
+   {
+      //lastCheck = millis(); // Update lastCheck so we enforce a full I2C_POLLING_WAIT
+      wireport->beginTransmission((uint8_t)deviceaddress);
+      wireport->write(DATA_REG); // Point to the 'serial register'
+      wireport->print(str);
+      if (wireport->endTransmission() != 0) //Release bus
+         diagprint(F("I2C write was not successful!\r\n"));
+   }
 }
 
-
-// Send a long string that might need to be broken up for the I2C port
 void IridiumSBD::sendlong(const char *str)
+// Send a long string that might need to be broken up for the I2C port
 {
     consoleprint(F(">> "));
     consoleprint(str);
@@ -1356,7 +1355,6 @@ void IridiumSBD::sendlong(const char *str)
 
     if (this->useSerial)
     {
-        // If we are using serial then send it and don't worry about the long length
         stream->print(str);
     }
     else
@@ -1503,7 +1501,9 @@ void IridiumSBD::SBDRINGSeen()
 // nextChar.
 void IridiumSBD::filterSBDRING()
 {
-    if (!this->useSerial) check9603data(); // Check for new 9603 serial data
+    if (!this->useSerial)
+        check9603data(); // Check for new 9603 serial data
+
     while (((this->useSerial && (stream->available() > 0)) ||
            ((!this->useSerial) && (i2cSerAvailable() > 0))) && nextChar == -1)
     {
@@ -1897,3 +1897,4 @@ int IridiumSBD::internalGetIMEI(char *IMEI, size_t bufferSize)
 
     return ISBD_SUCCESS;
 }
+

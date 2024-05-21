@@ -31,6 +31,8 @@
 #define OCT 8
 #define BIN 2
 
+#ifdef __cplusplus
+
 class Print {
   private:
     int write_error;
@@ -114,5 +116,7 @@ class Print {
 
     virtual void flush() { /* Empty implementation for backward compatibility */ }
 };
+
+#endif // __cplusplus
 
 #endif

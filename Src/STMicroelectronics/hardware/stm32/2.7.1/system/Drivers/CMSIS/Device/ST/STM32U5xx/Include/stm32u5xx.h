@@ -108,33 +108,8 @@
   * @{
   */
 
-#if defined(STM32U575xx)
-  #include "stm32u575xx.h"
-#elif defined(STM32U585xx)
-  #include "stm32u585xx.h"
-#elif defined(STM32U595xx)
-  #include "stm32u595xx.h"
-#elif defined(STM32U599xx)
-  #include "stm32u599xx.h"
-#elif defined(STM32U5A5xx)
-  #include "stm32u5a5xx.h"
-#elif defined(STM32U5A9xx)
-  #include "stm32u5a9xx.h"
-#elif defined(STM32U5F9xx)
-  #include "stm32u5f9xx.h"
-#elif defined(STM32U5G9xx)
-  #include "stm32u5g9xx.h"
-#elif defined(STM32U5F7xx)
-  #include "stm32u5f7xx.h"
-#elif defined(STM32U5G7xx)
-  #include "stm32u5g7xx.h"
-#elif defined(STM32U535xx)
-  #include "stm32u535xx.h"
-#elif defined(STM32U545xx)
-  #include "stm32u545xx.h"
-#else
- #error "Please select first the target STM32U5xx device used in your application (in stm32u5xx.h file)"
-#endif
+ // Hacked to work PE
+#include "stm32u545xx.h"
 
 /**
   * @}
