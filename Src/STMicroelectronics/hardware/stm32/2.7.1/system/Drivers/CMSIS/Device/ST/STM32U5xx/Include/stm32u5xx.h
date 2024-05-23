@@ -109,6 +109,7 @@
   */
 
  // Hacked to work PE
+//#elif defined(STM32U545xx) we need this
 #include "stm32u545xx.h"
 
 /**

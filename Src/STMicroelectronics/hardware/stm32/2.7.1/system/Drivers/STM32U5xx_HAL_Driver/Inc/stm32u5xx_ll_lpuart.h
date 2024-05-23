@@ -2538,6 +2538,21 @@ __STATIC_INLINE void LL_LPUART_RequestRxDataFlush(USART_TypeDef *LPUARTx)
 }
 
 /**
+  * @brief  Request a Transmit data FIFO flush
+  * @note   TXFRQ bit is set to flush the whole FIFO when FIFO mode is enabled. This
+  *         also sets the flag TXFE (TXFIFO empty bit in the LPUART_ISR register).
+  * @note   Macro IS_UART_FIFO_INSTANCE(USARTx) can be used to check whether or not
+  *         FIFO mode feature is supported by the USARTx instance.
+  * @rmtoll RQR          TXFRQ         LL_LPUART_RequestTxDataFlush
+  * @param  LPUARTx LPUART Instance
+  * @retval None
+  */
+__STATIC_INLINE void LL_LPUART_RequestTxDataFlush(USART_TypeDef *LPUARTx)
+{
+  SET_BIT(LPUARTx->RQR, (uint16_t)USART_RQR_TXFRQ);
+}
+
+/**
   * @}
   */
 
@@ -2743,3 +2758,4 @@ void        LL_LPUART_StructInit(LL_LPUART_InitTypeDef *LPUART_InitStruct);
 #endif
 
 #endif /* STM32U5xx_LL_LPUART_H */
+

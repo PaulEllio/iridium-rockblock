@@ -22,12 +22,16 @@
 #ifndef TwoWire_h
 #define TwoWire_h
 
+#ifdef __cplusplus
+
 #include <functional>
 
 #include "Stream.h"
 #include "Arduino.h"
-extern "C" {
-#include "utility/twi.h"
+
+extern "C" // Weird? Hacked to work PE
+{
+    #include "utility/twi.h"
 }
 
 // Minimal buffer length. Buffers length will be increased when needed,
@@ -40,6 +44,7 @@ extern "C" {
 
 // WIRE_HAS_END means Wire has end()
 #define WIRE_HAS_END 1
+
 
 class TwoWire : public Stream {
   public:
@@ -147,8 +152,8 @@ class TwoWire : public Stream {
     }
 };
 
+extern TwoWire Wire; // Weird? Hacked to work PE
 
-
-extern TwoWire Wire;
+#endif // __cplusplus
 
 #endif

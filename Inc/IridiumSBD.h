@@ -31,7 +31,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //#if (ARDUINO >= 100)
 #include <Arduino.h>
 //#else
-//    #include "WProgram.h" // This does not exist anywhere?
+//    #include "WProgram.h" // Orig. This does not exist anywhere?
 //#endif
 
 #include <Wire.h>
@@ -54,9 +54,8 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
     //The catch-all default is 32
     #define I2C_BUFFER_LENGTH 32
 #endif
+
 //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-
-
 // Changed by PC to reflect substantial update for I2C functions
 #define ISBD_LIBRARY_REVISION         3
 
@@ -88,6 +87,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #define ISBD_CLEAR_MT   1
 #define ISBD_CLEAR_BOTH 2
 
+#ifdef __cplusplus
 typedef const __FlashStringHelper *FlashString;
 
 
@@ -332,5 +332,7 @@ class IridiumSBD
         int internalPassThruI2Cread(uint8_t *rxBuffer, size_t &rxBufferSize, size_t &numBytes);
         int internalPassThruI2Cwrite(uint8_t *txBuffer, size_t &txBufferSize);
 };
+
+#endif // __cplusplus
 
 #endif

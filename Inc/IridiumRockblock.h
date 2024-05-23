@@ -11,24 +11,26 @@ Suggested and generously supported by Rock Seven Location Technology
 (http://rock7mobile.com), makers of the brilliant RockBLOCK satellite modem.
 */
 
+#include "IridiumSBD.h"
+
 #ifndef IRIDIUMROCKBLOCK_H
 #define IRIDIUMROCKBLOCK_H
 
-#include "IridiumSBD.h"
+// System comms defines
+#define BAUD_RATE   19200
+#define SERIAL_RATE 115200
 
 
-extern "C"
-{
-    int init(); // NB: There are a few 'init's beware (board.c)!!
+int init();
 
-    int sendText(const char *message);
+int sendText(const char *message);
 
-    int getSignalQuality(int &quality);
+//int getSignalQuality(int &quality);
+int getSignalQuality(int quality);
 
-    int getFirmwareVersion(char *version, size_t bufferSize);
+int getFirmwareVersion(char *version, size_t bufferSize);
 
-    int getIMEI(char *IMEI, size_t bufferSize);
-}
+int getIMEI(char *IMEI, size_t bufferSize);
 
 
 /*

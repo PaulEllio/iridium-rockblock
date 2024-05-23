@@ -1,0 +1,9 @@
+
+# ignore all logs
+*.log
+
+# ignore all objects
+*.o
+
+# ignore Debug folder files
+Debug/

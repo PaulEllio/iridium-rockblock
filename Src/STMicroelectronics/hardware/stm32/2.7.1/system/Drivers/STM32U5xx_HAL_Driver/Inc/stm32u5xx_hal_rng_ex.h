@@ -62,6 +62,8 @@ typedef struct
                                           value of @ref RNG_Ex_Auto_Reset   */
   uint32_t        HealthTest;           /*!< RNG health test control must be a value
                                              between 0x0FFCABFF and 0x00005200 */
+  uint32_t        NoiseSource;       /*!< RNG noise source control(Oscillator Enable signals)
+                                          must be a value between 0x0 and 0x0003FFFF */
 } RNG_ConfigTypeDef;
 
 /**
@@ -260,3 +262,4 @@ HAL_StatusTypeDef HAL_RNGEx_RecoverSeedError(RNG_HandleTypeDef *hrng);
 
 
 #endif /* STM32U5xx_HAL_RNG_EX_H */
+

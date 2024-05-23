@@ -80,3 +80,4 @@ HAL_StatusTypeDef HAL_OPAMPEx_Unlock(OPAMP_HandleTypeDef *hopamp);
 #endif
 
 #endif /* STM32U5xx_HAL_OPAMP_EX_H */
+

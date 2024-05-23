@@ -19,7 +19,7 @@
 #ifdef __cplusplus
 extern "C" {
 #endif /* __cplusplus */
-void init(void) ; // NB: was just init but changed to differ board_init PE?
+void board_init(void) ; // NB: was just init but changed to differ board_init PE?
 #ifdef __cplusplus
 }
 #endif /* __cplusplus */

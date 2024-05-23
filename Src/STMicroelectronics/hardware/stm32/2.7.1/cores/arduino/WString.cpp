@@ -29,7 +29,7 @@
 
 String::String(const char *cstr)
 {
-  init();
+  init(); // hw_init?
   if (cstr) {
     copy(cstr, strlen(cstr));
   }

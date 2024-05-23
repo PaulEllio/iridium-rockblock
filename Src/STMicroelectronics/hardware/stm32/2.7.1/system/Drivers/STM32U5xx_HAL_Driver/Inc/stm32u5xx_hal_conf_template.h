@@ -8,7 +8,7 @@
   ******************************************************************************
   * @attention
   *
-  * Copyright (c) 2021 STMicroelectronics.
+  * Copyright (c) 2021-2023 STMicroelectronics.
   * All rights reserved.
   *
   * This software is licensed under terms that can be found in the LICENSE file
@@ -144,7 +144,7 @@ extern "C" {
 vary depending on the variations in voltage and temperature.*/
 
 #if !defined  (LSI_STARTUP_TIMEOUT)
-#define LSI_STARTUP_TIMEOUT    130UL      /*!< Time out for LSI start up, in ms */
+#define LSI_STARTUP_TIMEOUT    130UL      /*!< Time out for LSI start up, in us */
 #endif /* LSI_STARTUP_TIMEOUT */
 
 /**
@@ -512,3 +512,4 @@ void assert_failed(uint8_t *file, uint32_t line);
 #endif
 
 #endif /* STM32U5xx_HAL_CONF_H */
+
